@@ -26,7 +26,8 @@
     "@prisma/client": "^5.8.1",
     "lodash": "^4.17.21",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "slugify": "^1.6.6"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",

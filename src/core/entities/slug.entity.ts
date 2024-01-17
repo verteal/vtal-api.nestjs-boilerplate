@@ -3,11 +3,11 @@ import slugify from 'slugify';
 import { ValueObject } from './value-object.entity';
 
 export class Slug extends ValueObject {
-  public slug: string;
+  public value: string;
 
-  constructor(slug: string) {
+  constructor(value: string) {
     super();
-    this.slug = slug;
+    this.value = value;
   }
 
   /**
@@ -25,5 +25,9 @@ export class Slug extends ValueObject {
     });
 
     return new Slug(slugText);
+  }
+
+  toString() {
+    return this.value;
   }
 }

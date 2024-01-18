@@ -1,6 +1,6 @@
 import { UUID } from '@/shared/domain/value-objects/uuid.entity';
 
-export class Entity<T> {
+export abstract class Entity<T> {
   private _id: UUID;
   protected props: T;
 

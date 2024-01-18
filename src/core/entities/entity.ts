@@ -17,8 +17,8 @@ export class Entity<T> {
    * @param props The properties of the entity
    * @param id An optional UUID string for the entity. If not provided, a new UUID will be generated
    */
-  constructor(props: T, id?: string) {
+  constructor(props: T, id?: UUID) {
     this.props = props;
-    this._id = new UUID(id);
+    this._id = id ?? new UUID();
   }
 }

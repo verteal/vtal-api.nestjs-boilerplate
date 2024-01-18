@@ -1,13 +1,13 @@
-import { randomUUID } from 'crypto';
-import { Entity } from '../entity';
 import { UUID } from '@/domain/entities/value-objects/uuid.entity';
+
+import { Entity } from '../entity';
 
 describe('Entity', () => {
   it('creates an entity with a specific UUID', () => {
-    const uuid = randomUUID();
+    const uuid = new UUID();
     const entity = new Entity({}, uuid);
 
-    expect(entity.id.toValue()).toBe(uuid);
+    expect(entity.id.toValue()).toBe(uuid.toValue());
   });
 
   it('creates an entity with a generated UUID when none is provided', () => {
@@ -17,8 +17,8 @@ describe('Entity', () => {
   });
 
   it('ensures the entity id is immutable', () => {
-    const uuid1 = randomUUID();
-    const uuid2 = randomUUID();
+    const uuid1 = new UUID();
+    const uuid2 = new UUID();
     const entity = new Entity({}, uuid1);
 
     try {
@@ -29,6 +29,6 @@ describe('Entity', () => {
       // Expected to fail
     }
 
-    expect(entity.id.toValue()).toBe(uuid1);
+    expect(entity.id.toValue()).toBe(uuid1.toValue());
   });
 });

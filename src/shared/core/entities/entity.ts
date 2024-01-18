@@ -1,4 +1,4 @@
-import { UUID } from '@/domain/entities/value-objects/uuid.entity';
+import { UUID } from '@/shared/domain/value-objects/uuid.entity';
 
 export class Entity<T> {
   private _id: UUID;

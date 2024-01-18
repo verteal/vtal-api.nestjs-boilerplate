@@ -1,6 +1,6 @@
 import { UUID } from '@/shared/domain/value-objects/uuid.entity';
 
-import { Entity } from '../entity';
+import { Entity } from '../entities/entity';
 
 describe('Entity', () => {
   it('creates an entity with a specific UUID', () => {

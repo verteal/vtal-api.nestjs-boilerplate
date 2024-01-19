@@ -21,4 +21,18 @@ export abstract class Entity<T> {
     this.props = props;
     this._id = id ?? new UUID();
   }
+
+  /**
+   * Compares this entity with another entity for equality.
+   * Two entities are considered equal if they are the same instance or have the same ID.
+   * @param entity The entity to compare with.
+   * @returns {boolean} True if the entities are considered equal; otherwise, false.
+   */
+  public equals(entity: Entity<unknown>) {
+    if (entity === this) return true;
+
+    if (entity.id === this._id) return true;
+
+    return false;
+  }
 }

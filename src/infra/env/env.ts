@@ -5,7 +5,7 @@ export const envSchema = z.object({
   DATABASE_USERNAME: z.string(),
   DATABASE_PASSWORD: z.string(),
   DATABASE_NAME: z.string(),
-  DATABASE_PORT: z.number().min(4).max(4),
+  DATABASE_PORT: z.coerce.number(),
   RABBITMQ_URI: z.string(),
 });
 

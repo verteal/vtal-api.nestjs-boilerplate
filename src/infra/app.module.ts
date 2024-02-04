@@ -4,9 +4,15 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { EnvModule } from './env/env.module';
 import { EnvService } from './env/env.service';
 import { RabbitMQModule } from './rabbitmq/rabbitmq.module';
+import { ConfigModule } from '@nestjs/config';
+import { envSchema } from './env/env';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      validate: (env) => envSchema.parse(env),
+      isGlobal: true,
+    }),
     TypeOrmModule.forRootAsync({
       imports: [EnvModule],
       inject: [EnvService],

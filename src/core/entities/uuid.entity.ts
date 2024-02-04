@@ -1,24 +1,24 @@
-import { randomUUID } from 'node:crypto';
+import { randomUUID } from 'node:crypto'
 
-import { ValueObject } from './value-object.entity';
+import { ValueObject } from './value-object.entity'
 
 /**
  * Represents a UUID as a value object.
  */
 export class UUID extends ValueObject {
-  private readonly value: string;
+  private readonly value: string
 
   constructor(value?: string) {
-    super();
-    this.value = value ?? randomUUID();
+    super()
+    this.value = value ?? randomUUID()
   }
 
   toString() {
-    return this.value;
+    return this.value
   }
 
   toValue() {
-    return this.value;
+    return this.value
   }
 
   /**
@@ -26,6 +26,6 @@ export class UUID extends ValueObject {
    * @param id The UUID to compare with.
    */
   public equals(id: UUID) {
-    return id.toValue() === this.value;
+    return id.toValue() === this.value
   }
 }

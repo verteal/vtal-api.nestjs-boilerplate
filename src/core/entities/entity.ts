@@ -1,15 +1,15 @@
-import { UUID } from '@/core/entities/uuid.entity';
+import { UUID } from '@/core/entities/uuid.entity'
 
 export abstract class Entity<T> {
-  private _id: UUID;
-  protected props: T;
+  private _id: UUID
+  protected props: T
 
   /**
    * Gets the entity's ID
    * @returns {UUID} The UUID of the entity
    */
   get id(): UUID {
-    return this._id;
+    return this._id
   }
 
   /**
@@ -18,8 +18,8 @@ export abstract class Entity<T> {
    * @param id An optional UUID string for the entity. If not provided, a new UUID will be generated
    */
   constructor(props: T, id?: UUID) {
-    this.props = props;
-    this._id = id ?? new UUID();
+    this.props = props
+    this._id = id ?? new UUID()
   }
 
   /**
@@ -29,10 +29,10 @@ export abstract class Entity<T> {
    * @returns {boolean} True if the entities are considered equal; otherwise, false.
    */
   public equals(entity: Entity<unknown>) {
-    if (entity === this) return true;
+    if (entity === this) return true
 
-    if (entity.id === this._id) return true;
+    if (entity.id === this._id) return true
 
-    return false;
+    return false
   }
 }

@@ -1,22 +1,22 @@
-import { NestFactory } from '@nestjs/core';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { NestFactory } from '@nestjs/core'
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 
-import { AppModule } from './app.module';
+import { AppModule } from './app.module'
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule)
 
   const config = new DocumentBuilder()
     .setTitle('[Boilerplate name] - VTAL API')
     .setDescription('Sample description')
     .setVersion('1.0')
     .addTag('example')
-    .build();
+    .build()
 
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('docs', app, document);
+  const document = SwaggerModule.createDocument(app, config)
+  SwaggerModule.setup('docs', app, document)
 
-  await app.listen(8000);
+  await app.listen(8000)
 }
 
-bootstrap();
+bootstrap()

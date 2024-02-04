@@ -3,20 +3,20 @@
  * It can identify new, existing, and removed items compared to an initial state.
  */
 export abstract class WatchedList<T> {
-  public currentItems: T[];
-  private initial: T[];
-  private new: T[];
-  private removed: T[];
+  public currentItems: T[]
+  private initial: T[]
+  private new: T[]
+  private removed: T[]
 
   /**
    * Initializes the watched list with initial items.
    * @param initialItems The initial set of items in the list.
    */
   constructor(initialItems?: T[]) {
-    this.currentItems = initialItems || [];
-    this.initial = initialItems || [];
-    this.new = [];
-    this.removed = [];
+    this.currentItems = initialItems || []
+    this.initial = initialItems || []
+    this.new = []
+    this.removed = []
   }
 
   /**
@@ -26,14 +26,14 @@ export abstract class WatchedList<T> {
    * @param b The second item to compare.
    * @returns A boolean indicating if the items are considered equal.
    */
-  abstract compareItems(a: T, b: T): boolean;
+  abstract compareItems(a: T, b: T): boolean
 
   /**
    * Gets the current items in the list.
    * @returns An array of current items.
    */
   public getItems(): T[] {
-    return this.currentItems;
+    return this.currentItems
   }
 
   /**
@@ -41,7 +41,7 @@ export abstract class WatchedList<T> {
    * @returns An array of new items.
    */
   public getNewItems(): T[] {
-    return this.new;
+    return this.new
   }
 
   /**
@@ -49,44 +49,44 @@ export abstract class WatchedList<T> {
    * @returns An array of removed items.
    */
   public getRemovedItems(): T[] {
-    return this.removed;
+    return this.removed
   }
 
   private isCurrentItem(item: T): boolean {
     return (
       this.currentItems.filter((v: T) => this.compareItems(item, v)).length !==
       0
-    );
+    )
   }
 
   private isNewItem(item: T): boolean {
-    return this.new.filter((v: T) => this.compareItems(item, v)).length !== 0;
+    return this.new.filter((v: T) => this.compareItems(item, v)).length !== 0
   }
 
   private isRemovedItem(item: T): boolean {
     return (
       this.removed.filter((v: T) => this.compareItems(item, v)).length !== 0
-    );
+    )
   }
 
   private removeFromNew(item: T): void {
-    this.new = this.new.filter((v) => !this.compareItems(v, item));
+    this.new = this.new.filter((v) => !this.compareItems(v, item))
   }
 
   private removeFromCurrent(item: T): void {
     this.currentItems = this.currentItems.filter(
-      (v) => !this.compareItems(item, v),
-    );
+      (v) => !this.compareItems(item, v)
+    )
   }
 
   private removeFromRemoved(item: T): void {
-    this.removed = this.removed.filter((v) => !this.compareItems(item, v));
+    this.removed = this.removed.filter((v) => !this.compareItems(item, v))
   }
 
   private wasAddedInitially(item: T): boolean {
     return (
       this.initial.filter((v: T) => this.compareItems(item, v)).length !== 0
-    );
+    )
   }
 
   /**
@@ -95,7 +95,7 @@ export abstract class WatchedList<T> {
    * @returns A boolean indicating if the item exists in the current list.
    */
   public exists(item: T): boolean {
-    return this.isCurrentItem(item);
+    return this.isCurrentItem(item)
   }
 
   /**
@@ -105,15 +105,15 @@ export abstract class WatchedList<T> {
    */
   public add(item: T): void {
     if (this.isRemovedItem(item)) {
-      this.removeFromRemoved(item);
+      this.removeFromRemoved(item)
     }
 
     if (!this.isNewItem(item) && !this.wasAddedInitially(item)) {
-      this.new.push(item);
+      this.new.push(item)
     }
 
     if (!this.isCurrentItem(item)) {
-      this.currentItems.push(item);
+      this.currentItems.push(item)
     }
   }
 
@@ -123,16 +123,16 @@ export abstract class WatchedList<T> {
    * @param item The item to remove.
    */
   public remove(item: T): void {
-    this.removeFromCurrent(item);
+    this.removeFromCurrent(item)
 
     if (this.isNewItem(item)) {
-      this.removeFromNew(item);
+      this.removeFromNew(item)
 
-      return;
+      return
     }
 
     if (!this.isRemovedItem(item)) {
-      this.removed.push(item);
+      this.removed.push(item)
     }
   }
 
@@ -143,15 +143,15 @@ export abstract class WatchedList<T> {
    */
   public update(items: T[]): void {
     const newItems = items.filter((a) => {
-      return !this.getItems().some((b) => this.compareItems(a, b));
-    });
+      return !this.getItems().some((b) => this.compareItems(a, b))
+    })
 
     const removedItems = this.getItems().filter((a) => {
-      return !items.some((b) => this.compareItems(a, b));
-    });
+      return !items.some((b) => this.compareItems(a, b))
+    })
 
-    this.currentItems = items;
-    this.new = newItems;
-    this.removed = removedItems;
+    this.currentItems = items
+    this.new = newItems
+    this.removed = removedItems
   }
 }

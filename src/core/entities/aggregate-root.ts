@@ -1,6 +1,6 @@
-import { DomainEvent } from '../events/domain-event';
-import { DomainEvents } from '../events/domain-events';
-import { Entity } from './entity';
+import { DomainEvent } from '../events/domain-event'
+import { DomainEvents } from '../events/domain-events'
+import { Entity } from './entity'
 
 /**
  * An abstract class that represents the root of an aggregate in DDD.
@@ -8,14 +8,14 @@ import { Entity } from './entity';
  * and they are responsible for handling domain events.
  */
 export abstract class AggregateRoot<Props> extends Entity<Props> {
-  private _domainEvents: DomainEvent[] = [];
+  private _domainEvents: DomainEvent[] = []
 
   /**
    * Gets the domain events that have been raised but not yet dispatched.
    * @returns An array of DomainEvent instances.
    */
   get domainEvents(): DomainEvent[] {
-    return this._domainEvents;
+    return this._domainEvents
   }
 
   /**
@@ -24,8 +24,8 @@ export abstract class AggregateRoot<Props> extends Entity<Props> {
    * @param domainEvent The domain event to add.
    */
   protected addDomainEvent(domainEvent: DomainEvent): void {
-    this._domainEvents.push(domainEvent);
-    DomainEvents.markAggregateForDispatch(this);
+    this._domainEvents.push(domainEvent)
+    DomainEvents.markAggregateForDispatch(this)
   }
 
   /**
@@ -33,7 +33,7 @@ export abstract class AggregateRoot<Props> extends Entity<Props> {
    * This is usually called after the events have been dispatched.
    */
   public clearEvents(): void {
-    this._domainEvents = [];
+    this._domainEvents = []
   }
 
   /**
@@ -43,10 +43,10 @@ export abstract class AggregateRoot<Props> extends Entity<Props> {
    */
   public equals(other: AggregateRoot<Props>): boolean {
     if (other === null || other === undefined) {
-      return false;
+      return false
     }
 
     // Assuming 'id' is a property of Entity that holds a unique identifier
-    return this.id.equals(other.id);
+    return this.id.equals(other.id)
   }
 }

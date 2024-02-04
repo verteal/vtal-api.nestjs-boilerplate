@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from 'zod'
 
 export const envSchema = z.object({
   DATABASE_URL: z.string().url(),
@@ -7,6 +7,6 @@ export const envSchema = z.object({
   DATABASE_NAME: z.string(),
   DATABASE_PORT: z.coerce.number(),
   RABBITMQ_URI: z.string(),
-});
+})
 
-export type Env = z.infer<typeof envSchema>;
+export type Env = z.infer<typeof envSchema>

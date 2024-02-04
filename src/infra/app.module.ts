@@ -1,11 +1,11 @@
-import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { Module } from '@nestjs/common'
+import { TypeOrmModule } from '@nestjs/typeorm'
 
-import { EnvModule } from './env/env.module';
-import { EnvService } from './env/env.service';
-import { RabbitMQModule } from './rabbitmq/rabbitmq.module';
-import { ConfigModule } from '@nestjs/config';
-import { envSchema } from './env/env';
+import { EnvModule } from './env/env.module'
+import { EnvService } from './env/env.service'
+import { RabbitMQModule } from './rabbitmq/rabbitmq.module'
+import { ConfigModule } from '@nestjs/config'
+import { envSchema } from './env/env'
 
 @Module({
   imports: [

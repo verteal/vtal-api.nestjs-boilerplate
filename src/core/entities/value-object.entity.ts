@@ -1,4 +1,4 @@
-import { isEqual } from 'lodash';
+import { isEqual } from 'lodash'
 
 /**
  * Represents a Value Object for attribute-based comparison
@@ -13,13 +13,13 @@ export class ValueObject {
    */
   public equals(value: this): boolean {
     if (value === null || value === undefined) {
-      return false;
+      return false
     }
 
     if (value.constructor.name !== this.constructor.name) {
-      return false;
+      return false
     }
 
-    return isEqual(value, this);
+    return isEqual(value, this)
   }
 }

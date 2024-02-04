@@ -1,8 +1,8 @@
-import { RabbitMQModule as PrimitiveRabbitMQModule } from '@golevelup/nestjs-rabbitmq';
-import { Global, Module } from '@nestjs/common';
+import { RabbitMQModule as PrimitiveRabbitMQModule } from '@golevelup/nestjs-rabbitmq'
+import { Global, Module } from '@nestjs/common'
 
-import { EnvModule } from '../env/env.module';
-import { EnvService } from '../env/env.service';
+import { EnvModule } from '../env/env.module'
+import { EnvService } from '../env/env.service'
 
 @Global()
 @Module({

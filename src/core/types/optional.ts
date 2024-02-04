@@ -30,4 +30,4 @@
  * Now, `UserWithOptionalCreatedAt` will have required `name` and `email` fields, but `createdAt` will be optional.
  */
 
-export type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
+export type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>

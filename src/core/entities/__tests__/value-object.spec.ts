@@ -1,4 +1,4 @@
-import { ValueObject } from '../../../../core/entities/value-object.entity';
+import { ValueObject } from '../value-object.entity';
 
 class StringValueObject extends ValueObject {
   constructor(readonly value: string) {

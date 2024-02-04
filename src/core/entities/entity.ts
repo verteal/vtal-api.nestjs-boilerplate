@@ -1,4 +1,4 @@
-import { UUID } from '@/shared/domain/value-objects/uuid.entity';
+import { UUID } from '@/core/entities/uuid.entity';
 
 export abstract class Entity<T> {
   private _id: UUID;

@@ -1,6 +1,6 @@
-import { Entity } from '@/shared/core/entities/entity';
+import { Entity } from '@/core/entities/entity';
 import { type Optional } from '@/shared/core/types/optional';
-import { UUID } from '../../shared/domain/value-objects/uuid.entity';
+import { UUID } from '../../core/entities/uuid.entity';
 
 export interface UserProps {
   username: string;

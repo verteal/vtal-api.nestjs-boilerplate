@@ -1,4 +1,4 @@
-import { UUID } from '@/shared/domain/value-objects/uuid.entity';
+import { UUID } from '@/core/entities/uuid.entity';
 
 export interface DomainEvent {
   ocurredAt: Date;

@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { EnvModule } from './env/env.module';
 import { EnvService } from './env/env.service';
+import { RabbitMQModule } from './rabbitmq/rabbitmq.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { EnvService } from './env/env.service';
       }),
     }),
     EnvModule,
+    RabbitMQModule,
   ],
 })
 export class AppModule {}

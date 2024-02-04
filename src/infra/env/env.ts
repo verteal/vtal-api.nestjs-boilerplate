@@ -6,6 +6,7 @@ export const envSchema = z.object({
   DATABASE_PASSWORD: z.string(),
   DATABASE_NAME: z.string(),
   DATABASE_PORT: z.number().min(4).max(4),
+  RABBITMQ_URI: z.string(),
 });
 
 export type Env = z.infer<typeof envSchema>;

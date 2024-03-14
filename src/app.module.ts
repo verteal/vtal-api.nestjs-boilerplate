@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { APP_INTERCEPTOR } from '@nestjs/core'
 
-import { EnvModule } from './env/env.module'
-import { RabbitMQModule } from './rabbitmq/rabbitmq.module'
-import { envSchema } from './env/env'
-import { ResponseInterceptor } from './web/interceptors/response.interceptor'
+import { EnvModule } from './infra/env/env.module'
+import { RabbitMQModule } from './infra/rabbitmq/rabbitmq.module'
+import { envSchema } from './infra/env/env'
+import { ResponseInterceptor } from './infra/web/interceptors/response.interceptor'
 
 @Module({
   imports: [

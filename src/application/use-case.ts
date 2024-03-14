@@ -1,4 +1,4 @@
-import { Either, left, right } from '@/core/either'
+import { Either, left, right } from '@/@core/either'
 
 export abstract class UseCase<Request, Response, ErrorType = Error> {
   async execute(request: Request): Promise<Either<ErrorType, Response>> {

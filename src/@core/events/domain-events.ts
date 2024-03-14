@@ -1,4 +1,4 @@
-import { UUID } from '@/core/entities/uuid.entity'
+import { UUID } from '@/@core/entities/uuid.entity'
 import { AggregateRoot } from '../entities/aggregate-root'
 import { DomainEvent } from './domain-event'
 

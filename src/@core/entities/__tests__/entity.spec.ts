@@ -1,4 +1,4 @@
-import { UUID } from '@/core/entities/uuid.entity'
+import { UUID } from '@/@core/entities/uuid.entity'
 
 import { Entity } from '../entity'
 
